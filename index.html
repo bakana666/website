@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>IT-servicio en Argentina — Especialista en computadoras</title>
+  <!-- Favicon SVG (логотип ноутбук с солнцем) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='12' y='25' width='56' height='36' rx='7' fill='%2374acdf' stroke='%232691d9' stroke-width='2'/%3E%3Crect x='20' y='33' width='40' height='20' rx='3' fill='white'/%3E%3Ccircle cx='40' cy='43' r='7' fill='%23ffd600' stroke='%23ffd600' stroke-width='1.5'/%3E%3Crect x='28' y='60' width='24' height='4' rx='2' fill='%232691d9'/%3E%3C/svg%3E">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body { font-family: 'Inter', Arial, sans-serif; }
@@ -20,6 +22,14 @@
     .from-ar-blue { --tw-gradient-from: #74acdf var(--tw-gradient-from-position); }
     .to-ar-blue { --tw-gradient-to: #2691d9 var(--tw-gradient-to-position); }
     .from-ar-yellow { --tw-gradient-from: #ffd600 var(--tw-gradient-from-position); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-tr from-ar-blue via-white to-ar-blue min-h-screen text-gray-800">
@@ -31,10 +41,22 @@
     <button class="lang-btn px-3 py-1 rounded-lg border border-ar-blue text-ar-blue font-bold hover:bg-ar-blue hover:text-white transition" onclick="setLang('en')">EN</button>
   </div>
 
-  <!-- HERO + ОПИСАНИЕ -->
+  <!-- HERO + ОПИСАНИЕ + ЛОГОТИП -->
   <header class="bg-gradient-to-r from-ar-blue via-white to-ar-blue text-gray-900 pb-0 pt-8 px-0">
     <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8 px-4 fadein">
       <div>
+        <div class="flex items-center gap-3 mb-4">
+          <!-- Логотип SVG -->
+          <span>
+            <svg width="56" height="56" viewBox="0 0 80 80" fill="none">
+              <rect x="12" y="25" width="56" height="36" rx="7" fill="#74acdf" stroke="#2691d9" stroke-width="2"/>
+              <rect x="20" y="33" width="40" height="20" rx="3" fill="#fff"/>
+              <circle cx="40" cy="43" r="7" fill="#ffd600" stroke="#ffd600" stroke-width="1.5"/>
+              <rect x="28" y="60" width="24" height="4" rx="2" fill="#2691d9"/>
+            </svg>
+          </span>
+          <span class="font-extrabold text-2xl text-ar-blue">argentinait.services</span>
+        </div>
         <h1 class="text-4xl md:text-5xl font-extrabold mb-3 tracking-tight drop-shadow-xl text-ar-blue" data-txt="hero_title"></h1>
         <p class="mb-3 text-lg md:text-xl font-medium max-w-xl text-ar-blue" data-txt="hero_subtitle"></p>
         <div class="mb-5 text-base md:text-lg max-w-xl opacity-90" data-txt="about"></div>
@@ -55,13 +77,13 @@
   <!-- УСЛУГИ ДЛЯ ДОМА -->
   <section class="container mx-auto px-4 py-12 fadein">
     <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 text-ar-blue" data-txt="home_services_title"></h2>
-    <div class="grid md:grid-cols-3 gap-8" id="home-services-list"></div>
+    <div class="services-grid" id="home-services-list"></div>
   </section>
 
   <!-- УСЛУГИ ДЛЯ БИЗНЕСА -->
   <section class="container mx-auto px-4 py-12 fadein">
     <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 text-ar-blue" data-txt="biz_services_title"></h2>
-    <div class="grid md:grid-cols-3 gap-8" id="biz-services-list"></div>
+    <div class="services-grid" id="biz-services-list"></div>
   </section>
 
   <!-- ОТЗЫВЫ -->
@@ -109,25 +131,27 @@
     <div class="container mx-auto text-center text-sm opacity-90" data-txt="footer"></div>
   </footer>
 
-  <!-- JS: языки, слайдеры, отзывы -->
+  <!-- JS: языки, слайдеры, отзывы, услуги -->
   <script>
-    // === ЯЗЫКОВЫЕ ПАКЕТЫ ===
+    // Телефон
+    const phone = '+54 9 11 3834 7034';
+    // Языковые пакеты (коротко, только основные)
     const LANGS = {
       ru: {
         hero_title: "IT-сервис в Аргентине",
         hero_subtitle: "Компьютерная помощь для частных лиц и бизнеса. Обслуживание на русском, испанском и английском языках.",
-        about: "Меня зовут Алексей, я независимый IT-специалист с более чем 10-летним опытом работы с компьютерами, мобильными устройствами, программным обеспечением и офисной техникой. Помогу с любыми задачами — от настройки iPhone, Android и Wi-Fi до поддержки малого бизнеса и автоматизации. Работаю в Аргентине, консультирую онлайн и выезжаю на дом.",
+        about: "Меня зовут Aleksei, я независимый IT-специалист с более чем 10-летним опытом работы с компьютерами, мобильными устройствами, программным обеспечением и офисной техникой. Помогу с любыми задачами — от настройки iPhone, Android и Wi-Fi до поддержки малого бизнеса и автоматизации. Работаю в Аргентине, консультирую онлайн и выезжаю на дом.",
         contact_btn: "Связаться",
         home_services_title: "Услуги для частных лиц",
         biz_services_title: "Услуги для бизнеса",
         reviews_title: "Отзывы клиентов",
         contact_title: "Связаться со мной",
-        contact_phone: 'Или по телефону: <b>+54 9 11 3834 7034</b>',
+        contact_phone: `Или по телефону: <b>${phone}</b>`,
         form_name: "Ваше имя",
         form_contact: "Телефон или Email",
         form_msg: "Ваш вопрос",
         form_btn: "Отправить",
-        footer: "&copy; 2025 IT-сервис. Алексей — частный IT-специалист. Для клиентов из Аргентины и Латинской Америки.",
+        footer: `&copy; 2025 IT-сервис. Aleksei — частный IT-специалист. Для клиентов из Аргентины и Латинской Америки. Телефон: ${phone}`,
         home_services: [
           {icon: "💻", title: "Настройка компьютеров и ноутбуков"},
           {icon: "🦠", title: "Удаление вирусов, защита и чистка"},
@@ -149,7 +173,7 @@
         reviews: [
           {
             name: "Екатерина П.",
-            text: "Спасибо Алексею за быструю помощь — восстановил ноутбук, объяснил всё очень понятно и даже дал полезные советы. Рекомендую!",
+            text: "Спасибо Aleksei за быструю помощь — восстановил ноутбук, объяснил всё очень понятно и даже дал полезные советы. Рекомендую!",
             rating: 5
           },
           {
@@ -167,18 +191,18 @@
       es: {
         hero_title: "IT-servicio en Argentina",
         hero_subtitle: "Soporte informático para particulares y empresas. Atención en español, ruso e inglés.",
-        about: "Me llamo Alexey, soy especialista independiente en IT con más de 10 años de experiencia en computadoras, dispositivos móviles, software y equipos de oficina. Te ayudo con cualquier consulta: desde la configuración de iPhone, Android y Wi-Fi hasta soporte y automatización para negocios. Trabajo en Argentina, realizo consultas en línea y visitas a domicilio.",
+        about: "Me llamo Aleksei, soy especialista independiente en IT con más de 10 años de experiencia en computadoras, dispositivos móviles, software y equipos de oficina. Te ayudo con cualquier consulta: desde la configuración de iPhone, Android y Wi-Fi hasta soporte y automatización para negocios. Trabajo en Argentina, realizo consultas en línea y visitas a domicilio.",
         contact_btn: "Contacto",
         home_services_title: "Servicios para particulares",
         biz_services_title: "Servicios para empresas",
         reviews_title: "Opiniones de clientes",
         contact_title: "Contáctame",
-        contact_phone: 'O por teléfono: <b>+54 9 11 3834 7034</b>',
+        contact_phone: `O por teléfono: <b>${phone}</b>`,
         form_name: "Tu nombre",
         form_contact: "Teléfono o Email",
         form_msg: "Tu consulta",
         form_btn: "Enviar",
-        footer: "&copy; 2025 IT-servicio. Alexey — especialista independiente en IT. Para clientes de Argentina y Latinoamérica.",
+        footer: `&copy; 2025 IT-servicio. Aleksei — especialista independiente en IT. Para clientes de Argentina y Latinoamérica. Teléfono: ${phone}`,
         home_services: [
           {icon: "💻", title: "Configuración de computadoras y notebooks"},
           {icon: "🦠", title: "Eliminación de virus, protección y limpieza"},
@@ -200,7 +224,7 @@
         reviews: [
           {
             name: "Sofía R.",
-            text: "Alexey resolvió todos mis problemas con la notebook y también configuró mi iPhone. ¡Muy recomendable!",
+            text: "Aleksei resolvió todos mis problemas con la notebook y también configuró mi iPhone. ¡Muy recomendable!",
             rating: 5
           },
           {
@@ -210,7 +234,7 @@
           },
           {
             name: "Valeria D.",
-            text: "Pedí ayuda para configurar internet, el Wi-Fi y mi Android. Alexey fue puntual, amable y resolvió todo. ¡Gracias!",
+            text: "Pedí ayuda para configurar internet, el Wi-Fi y mi Android. Aleksei fue puntual, amable y resolvió todo. ¡Gracias!",
             rating: 5
           }
         ]
@@ -218,18 +242,18 @@
       en: {
         hero_title: "IT Service in Argentina",
         hero_subtitle: "IT support for individuals and businesses. Service in English, Russian, and Spanish.",
-        about: "My name is Alexey. I’m an independent IT specialist with 10+ years of experience in computers, mobile devices, software, and office equipment. I can help you with everything: from setting up iPhone, Android & Wi-Fi to business IT support and automation. Based in Argentina, I offer remote consultations and on-site visits.",
+        about: "My name is Aleksei. I’m an independent IT specialist with 10+ years of experience in computers, mobile devices, software, and office equipment. I can help you with everything: from setting up iPhone, Android & Wi-Fi to business IT support and automation. Based in Argentina, I offer remote consultations and on-site visits.",
         contact_btn: "Contact me",
         home_services_title: "Services for Individuals",
         biz_services_title: "Services for Businesses",
         reviews_title: "Client testimonials",
         contact_title: "Contact me",
-        contact_phone: 'Or call: <b>+54 9 11 3834 7034</b>',
+        contact_phone: `Or call: <b>${phone}</b>`,
         form_name: "Your name",
         form_contact: "Phone or Email",
         form_msg: "Your request",
         form_btn: "Send",
-        footer: "&copy; 2025 IT Service. Alexey — Independent IT Specialist. For clients in Argentina and Latin America.",
+        footer: `&copy; 2025 IT Service. Aleksei — Independent IT Specialist. For clients in Argentina and Latin America. Phone: ${phone}`,
         home_services: [
           {icon: "💻", title: "PC & laptop setup and support"},
           {icon: "🦠", title: "Virus removal, protection & cleaning"},
@@ -251,7 +275,7 @@
         reviews: [
           {
             name: "Michael S.",
-            text: "Alexey quickly fixed my laptop and set up my Android phone. Very professional, highly recommended!",
+            text: "Aleksei quickly fixed my laptop and set up my Android phone. Very professional, highly recommended!",
             rating: 5
           },
           {
@@ -261,20 +285,44 @@
           },
           {
             name: "Diego F.",
-            text: "Great experience setting up Wi-Fi and all our office computers and iPhones. Alexey is punctual, helpful, and solved all our tech issues.",
+            text: "Great experience setting up Wi-Fi and all our office computers and iPhones. Aleksei is punctual, helpful, and solved all our tech issues.",
             rating: 5
           }
         ]
       }
     };
 
-    // === ЯЗЫКОВАЯ ЛОГИКА ===
+    // Отображение услуг через CSS Grid
+    function renderServices(containerId, items) {
+      const container = document.getElementById(containerId);
+      let html = '';
+      for (const item of items) {
+        html += `<div class="bg-white rounded-2xl glow p-6 flex flex-col items-center text-center hover:scale-105 transition-transform duration-300">
+          <div class="text-4xl mb-2">${item.icon}</div>
+          <div class="font-semibold text-lg">${item.title}</div>
+        </div>`;
+      }
+      container.innerHTML = html;
+    }
+
+    // Ссылки для слайдера (Twemoji PNG, всегда работают)
+    const slideImgs = [
+      // PC
+      "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4bb.png",
+      // Shield
+      "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f6e1.png",
+      // Phone
+      "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4f1.png",
+      // Server
+      "https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f5a5.png"
+    ];
+
+    // ЯЗЫКОВАЯ ЛОГИКА
     let currentLang = 'es';
     function setLang(lang) {
       currentLang = lang;
       document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
       document.querySelectorAll('.lang-btn')[['ru','es','en'].indexOf(lang)].classList.add('active');
-      // Тексты по data-txt
       for (const key in LANGS[lang]) {
         if (['home_services','biz_services','reviews'].includes(key)) continue;
         document.querySelectorAll(`[data-txt="${key}"]`).forEach(el=>{
@@ -282,28 +330,19 @@
           else el.textContent = LANGS[lang][key];
         });
       }
-      // Услуги для дома
-      let hs = '';
-      LANGS[lang].home_services.forEach(item=>{
-        hs += `<div class="bg-white rounded-2xl glow p-6 flex flex-col items-center text-center hover:scale-105 transition-transform duration-300"><div class="text-4xl mb-2">${item.icon}</div><div class="font-semibold text-lg">${item.title}</div></div>`;
-      });
-      document.getElementById('home-services-list').innerHTML = hs;
-      // Услуги для бизнеса
-      let bs = '';
-      LANGS[lang].biz_services.forEach(item=>{
-        bs += `<div class="bg-white rounded-2xl glow p-6 flex flex-col items-center text-center hover:scale-105 transition-transform duration-300"><div class="text-4xl mb-2">${item.icon}</div><div class="font-semibold text-lg">${item.title}</div></div>`;
-      });
-      document.getElementById('biz-services-list').innerHTML = bs;
-      // Отзывы (перерисуем!)
+      // Услуги
+      renderServices('home-services-list', LANGS[lang].home_services);
+      renderServices('biz-services-list', LANGS[lang].biz_services);
+      // Отзывы
       reviewIdx = 0;
       showReview(0);
     }
-    // --- SLIDER ---
+    // --- SLIDER (с новыми иконками Twemoji) ---
     const slides = [
-      {img: "https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/devices-pc.svg", captionRU: "Обслуживание домашних компьютеров и ноутбуков", captionES: "Soporte para computadoras y notebooks en casa", captionEN: "Home PC & laptop support"},
-      {img: "https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/shield-check.svg", captionRU: "Безопасность и настройка ПО", captionES: "Seguridad informática y software", captionEN: "Security & software setup"},
-      {img: "https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/device-mobile.svg", captionRU: "Настройка Android/iOS, смартфонов и планшетов", captionES: "Configuración de dispositivos Android/Apple", captionEN: "Android/Apple device setup & support"},
-      {img: "https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/server.svg", captionRU: "Сети и серверы для бизнеса", captionES: "Redes y servidores para empresas", captionEN: "Business networks & servers"},
+      {img: slideImgs[0], captionRU: "Обслуживание домашних компьютеров и ноутбуков", captionES: "Soporte para computadoras y notebooks en casa", captionEN: "Home PC & laptop support"},
+      {img: slideImgs[1], captionRU: "Безопасность и настройка ПО", captionES: "Seguridad informática y software", captionEN: "Security & software setup"},
+      {img: slideImgs[2], captionRU: "Настройка Android/iOS, смартфонов и планшетов", captionES: "Configuración de dispositivos Android/Apple", captionEN: "Android/Apple device setup & support"},
+      {img: slideImgs[3], captionRU: "Сети и серверы для бизнеса", captionES: "Redes y servidores para empresas", captionEN: "Business networks & servers"},
     ];
     let currentSlide = 0;
     function showSlide(idx) {
